@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
 
 # 다른 좋은 풀이들...  그냥 sum을 쓰면 되는 것이였다.
- def adder(a, b):
+def adder(a, b):
     # 함수를 완성하세요
     if a > b: a, b = b, a
 
