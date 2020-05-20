@@ -1,23 +1,15 @@
 '''
 pseudo code
+for in range(half length):
+    if n // i == 0:
+        appendlist...
 
+    return sumoflist
 '''
 
-
-'''
-다른 좋은 풀이
-
-'''
-
-'''
-pseudo code
-
-
-
-'''
 def solution(n):
-    aliquot = [x for x in range(1, (n//2)+1) if n%x == 0]
-    print(aliquot)
+    aliquot = [n//x for x in range(1, (n//2)+1) if n%x == 0]
+    aliquot.append(1)
     return sum(aliquot)
     # aliquot = []
     # for i in range(1,(n//2)):
@@ -25,12 +17,11 @@ def solution(n):
     #         aliquot.append(i)
     #         aliquot.append(n//i)
     # return sum(aliquot)
-        
-
 
 '''
 다른 좋은 풀이
-
+def sumDivisor(num):
+    return sum([i for i in range(1,num+1) if num%i==0])
 '''
 
-print(solution(36))
+print(solution(12))
