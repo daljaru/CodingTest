@@ -6,26 +6,56 @@ arr1 = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5...] 12345
 arr2 = [ 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2,...]   21232425
 arr3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5, 3, 3, 1, 1, 2, 2, 4, 4...] 3311224455
 
-
-
+정답은 랜덤으로 주어지는데.....
 '''
+
+from itertools import cycle
+
+def checkAnswer(pAnswer, answers):
+    count = 0
+    for i in range(len(pAnswer)):
+        if pAnswer[i] == answers[i]:
+            count += 1
+    return count
 
 def solution(answers): #answer는 정답리스트
     p1 = [1,2,3,4,5]
     p2 = [2,1,2,3,2,4,2,5]
     p3 = [3,3,1,1,2,2,4,4,5,5]
 
-    answersLen = len(answers)
-    p1Len = len(p1)
+    persons = [p1, p2, p3]
+    result = []
+    for person in persons:
+        pCycle = cycle(person)
+        pAnswer = [next(pCycle) for i in range(len(answers))]
+        result.append(checkAnswer(pAnswer, answers))
+
+    result = [i+1 for i in range(len(result)) if result[i] == max(result)]
+    return result
 
 
+print(solution([1,3,4,4,2,3,4,2,1,3,2,4,1,3,2,4,3,3,4,2,4,2]))
 
 
-    result = list(map(lambda x : x==x, p1))  # p1의 각 원소를 비교한 결과를 리스트에 넣어야함.
+'''다른 사람 신기한 풀이
+def solution(answers):
+    pattern1 = [1,2,3,4,5]
+    pattern2 = [2,1,2,3,2,4,2,5]
+    pattern3 = [3,3,1,1,2,2,4,4,5,5]
+    score = [0, 0, 0]
+    result = []
 
-    return answers  #가장 많은 문제를 맞힌 사람이 누구인지 배열에 담기
+    for idx, answer in enumerate(answers):
+        if answer == pattern1[idx%len(pattern1)]:
+            score[0] += 1
+        if answer == pattern2[idx%len(pattern2)]:
+            score[1] += 1
+        if answer == pattern3[idx%len(pattern3)]:
+            score[2] += 1
 
+    for idx, s in enumerate(score):
+        if s == max(score):
+            result.append(idx+1)
 
-
-print(solution([1,3,2,4,2,3,4,2,1,3,2,4,5,3,2,4,3,3,4,2,4,2]))
-
+    return result
+'''
