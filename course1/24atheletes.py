@@ -185,11 +185,11 @@ def solution(participant, completion):
     
     
     
-def solution(participant, completion):
+def solution(participant, completion):  # 환상적인 코드. 
     answer = ''
     temp = 0
     dic = {}
-    for part in participant:
+    for part in participant:     #참가자 이름의 해시값. ... . . 해시값을 키로. 이름을 값으로.  크.... 지렸다. 
         dic[hash(part)] = part
         temp += int(hash(part))
     for com in completion:
