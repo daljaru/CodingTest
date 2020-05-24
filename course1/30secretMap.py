@@ -28,15 +28,49 @@ or계산 방법 알아야함
 
 변환된 것을 리스에 추가.
 '''
+def trans(binaryStr, transDict):
+    result = []
+    for i in range(len(binaryStr)):
+        result.append(transDict.get(binaryStr[i]))
+    return "".join(result)
 
 def solution(n, arr1, arr2):
     transDict ={"1":"#", "0":" "}
+    binary = []
     result = []
     for i in range(n):
-        print(bin(arr1[i]))
-
+        binaryStr = []
+        binary.append(arr1[i] | arr2[i])
+        binary[i] = bin(binary[i])[2:2+n]
+        if len(binary[i]) != n:
+            for j in range(n - len(binary[i])):
+                binaryStr.append("0")
+            binaryStr.append(binary[i])
+        else:
+            binaryStr.append(binary[i])
+        temp = trans("".join(binaryStr), transDict)
+        result.append(temp)
 
     return result
 
 
-print(solution(5, [9, 20, 28, 18, 11], [30, 1, 21, 17, 28]))
+print(solution(6, [46, 33, 33, 22, 31, 50], [27, 56, 19, 14, 14, 10]))
+
+
+''''
+신가한 다른 사람 풀이
+def solution(n, arr1, arr2):
+    answer = []
+    for i,j in zip(arr1,arr2):
+        a12 = str(bin(i|j)[2:])
+        a12=a12.rjust(n,'0')
+        a12=a12.replace('1','#')
+        a12=a12.replace('0',' ')
+        answer.append(a12)
+    return answer
+'''
+
+#100 4
+#010 2
+
+#1106
