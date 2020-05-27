@@ -35,30 +35,22 @@ def solution(n): # n번째 위치가 지정됨.
 import math
 
 def solution(n):  #12를 넣는다고 가정하자.
-    logLeftNum = int(math.log2(n)) #3
-    logRightNum = int(math.log2(n))+1 #4
-    midIndex = (math.pow(2, logRightNum) + math.pow(2, logLeftNum))//2
-
-    if midIndex < n:
-        
-    else:
-
-
-
-    # index = n-pow(2,logRightNum)
-    #
-    # tempList=[1]
-    # for j in range(logRightNum):
-    #     addList = [i+1 for i in tempList]
-    #     tempList += addList
-    # return tempList[index]
-    return 0
+    count = 0
+    while(True):
+        if(n%2 != 0):
+            n -= 1
+            count += 1
+        else:
+            n /= 2
+        if n==0:
+            break
+    return count
 
 
-print(solution(12))
+print(solution(5000))
 
 '''
-효율성 오류
+효율성 오류  ㅁㅊ 졸라 어렵게 생각했는데.... 병신이였음
 import math
 
 def solution(n):
