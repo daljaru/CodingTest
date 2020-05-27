@@ -1,4 +1,5 @@
 '''
+
 한 번에 K 칸 점프 or (현재까지 온 거리) x 2 에 해당하는 위치로 순간이동
 index + k          [index*2]
 k개 건전지 소모       소모 0
@@ -23,19 +24,51 @@ N	result
 5	2
 6	2
 5000	5
+'''
+'''
+pseudo code
+def solution(n): # n번째 위치가 지정됨. 
 
-일단... 스타트가 1인 경우는 무조건이고
 
-순간이동 할 수 없을 때  그  전 타이밍까지만 기록하는 걸로 하자.
 
 '''
+import math
 
-dist = 0
+def solution(n):  #12를 넣는다고 가정하자.
+    logLeftNum = int(math.log2(n)) #3
+    logRightNum = int(math.log2(n))+1 #4
+    midIndex = (math.pow(2, logRightNum) + math.pow(2, logLeftNum))//2
 
-def solution(n):
+    if midIndex < n:
+        
+    else:
 
-    go(n, dist)
+
+
+    # index = n-pow(2,logRightNum)
+    #
+    # tempList=[1]
+    # for j in range(logRightNum):
+    #     addList = [i+1 for i in tempList]
+    #     tempList += addList
+    # return tempList[index]
     return 0
 
 
-print(solution(5000))
+print(solution(12))
+
+'''
+효율성 오류
+import math
+
+def solution(n):
+    lineNum = int(math.log2(n))
+    index = n-pow(2,lineNum)
+
+
+    tempList=[1]
+    for j in range(lineNum):
+        addList = [i+1 for i in tempList]
+        tempList += addList
+    return tempList[index]
+'''
