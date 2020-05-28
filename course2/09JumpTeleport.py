@@ -64,3 +64,12 @@ def solution(n):
         tempList += addList
     return tempList[index]
 '''
+
+
+'''
+다른 사람 신기한 풀이
+
+def solution(n):
+    return bin(n).count('1')    //이진법 계산 1카운트.
+
+'''
