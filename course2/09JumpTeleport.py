@@ -50,7 +50,7 @@ def solution(n):  #12를 넣는다고 가정하자.
 print(solution(5000))
 
 '''
-효율성 오류  ㅁㅊ 졸라 어렵게 생각했는데.... 병신이였음
+효율성 오류....
 import math
 
 def solution(n):
